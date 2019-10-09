@@ -77,9 +77,12 @@ ul,li{
 .header h4{
   margin:0;
 }
-
+.main-content {
+  padding-top: 82px;
+}
 .footer{
-  color:white ;
+  
+color:white ;
 text-align: center;
 line-height: 1.6;
 
