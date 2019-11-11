@@ -1,5 +1,5 @@
 body {
-  height:100vh;
+  height:110vh;
   width:100vw;
   background:linear-gradient(145deg, #4B87FF,#4B87FF 60%, white 60%, white);
 }
@@ -41,7 +41,7 @@ ul,li{
   padding-right:16px;
 
 }
-
+.logo {height: 40px;}
 .brand{
   display:inline-block;
   padding-right:;
@@ -81,13 +81,12 @@ ul,li{
 }
 .main-content {
   padding-top: 150px ;
-  padding-left: 90px;
+  padding-left: 120px;
   position: relative;
   left: 2px;
   width: 55%;
 }
 .head-1{ color: white;
-  text-underline-position:below;
 width:75%;
 text-decoration: underline;
 text-align: left;}
@@ -120,7 +119,7 @@ width: 70%;}
   text-align: center;
   position: relative;
   bottom: 260px;
-left: 80px;
+left: 120px;
 height: 40px;
 text-decoration-color: none;
 text-shadow: none;
@@ -155,7 +154,7 @@ border-color: white;
   text-align: center;
   position: relative;
   bottom: 210px;
- right: 92px;
+ right: 53px;
  height: 40px;
 
 }
