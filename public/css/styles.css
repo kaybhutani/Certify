@@ -1,19 +1,21 @@
-
-
-
+body {
+  height:100vh;
+  width:100vw;
+  background:linear-gradient(145deg, #4B87FF,#4B87FF 60%, white 60%, white);
+}
 .contact-me{
   background-image:linear-gradient(to right,#5d5d5d,#373640);
   width: 100%;
   height: 250px;
-
-
 }
+.header-area{ margin-top: 0px;
+  height: auto;}
 .topnav {
   background: #4B87FF;
   overflow: hidden;
   height:50px;
   padding:16px;
-  border-bottom:1px white solid; 
+  border-bottom:1px white solid;
 }
 
 .nav-items{
@@ -43,17 +45,17 @@ ul,li{
 .brand{
   display:inline-block;
   padding-right:;
-  
+
 }
 
 
 .topnav a {
   color: #FFFFFF;
-  
+
   /*padding: 14px 16px;*/
   text-decoration: none;
   font-size: 24px;
-  
+
 }
 
 .topnav a:hover {
@@ -78,12 +80,95 @@ ul,li{
   margin:0;
 }
 .main-content {
-  padding-top: 82px;
+  padding-top: 150px ;
+  padding-left: 90px;
+  position: relative;
+  left: 2px;
+  width: 55%;
 }
+.head-1{ color: white;
+  text-underline-position:below;
+width:75%;
+text-decoration: underline;
+text-align: left;}
+.subhead-1{ color: white;
+width:80%;
+text-align: left;
+  margin-top: 35px}
+.list2 {text-align: left;
+  margin-top: 25px;
+width: 70%;}
+.head-2 {color: #7A7A7A;
+  text-decoration: underline;
+  text-align: left;
+}
+.main-content2{
+  padding-top: 50px ;
+  padding-right: 30px;
+  color: #7A7A7A;
+  text-align: left;
+  position: relative;
+  left: 950px;
+  width: 35%;
+}
+
+
+
+.btn-createnow {
+  border-radius: 400px;
+  width: 170px;
+  text-align: center;
+  position: relative;
+  bottom: 260px;
+left: 80px;
+height: 40px;
+text-decoration-color: none;
+text-shadow: none;
+text-decoration: none;
+border-width: 3px;
+font-size: 20px;
+font-family: lato;
+border-style: solid;
+border-color: white;
+  background: #4B87FF;
+  color: white;
+}
+
+.btn-createnow:hover {background-color: white;
+  border-color: #4B87FF;
+  color: #4B87FF;
+}
+
+
+.btn-verifynow { border-color: white;
+  background: #4B87FF;
+  color: white;
+  font-size: 20px;
+  font-family: lato;
+
+  border-width: 3px;
+  border-style: solid;
+  border-radius: 40px;
+  width: 170px;
+  text-decoration: none;
+  text-shadow:0;
+  text-align: center;
+  position: relative;
+  bottom: 210px;
+ right: 92px;
+ height: 40px;
+
+}
+
+.btn-verifynow:hover {background-color: white;
+  border-color: #4B87FF;
+  color: #4B87FF;
+}
+
 .footer{
-  
+
 color:white ;
-text-align: center;
+text-align:center;
 line-height: 1.6;
 
 }
