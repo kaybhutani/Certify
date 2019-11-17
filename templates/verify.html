@@ -45,8 +45,26 @@
 
 
 
+<div class="container verifycontainer">
+  <center>
+    <h1 class="verifyheading"><span>Verify Certificate</span></h1>
+
+    <p class="text-data">Enter the Certify verification code below to check it's authenticity.It can be found on any corner of certificate.</p>
+
+  <form class="inline" action="verify.html" method="post">
+    <div class="form-group mx-sm-3 mb-2">
+        <label for="users" class="sr-only">VERIFICATION</label>
+        <input type="text" class="form-control" onkeypress="return event.keyCode!=13" id="certifycode" placeholder="Certify verification code">
+</div>
+</form>
+    <div class="col-lg-6 col-md-6 col-sm-12">
+    <a onclick="verify()" style="font-size: 20px;" id="btn-blue-invert">Proceed</a>
+</div>
+</center>
+    </div>
 
 
+      
 
 
 </body>

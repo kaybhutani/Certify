@@ -1,3 +1,8 @@
+import pandas as pd
+from PIL import Image, ImageFont, ImageDraw
+import sys
+from pymongo import MongoClient
+
 ##testing data
 template = "certi.jpg"
 data = "data.csv"
@@ -9,9 +14,10 @@ values = {
 }
 size=[80,75,75,75]
 
-import pandas as pd
-from PIL import Image, ImageFont, ImageDraw
-import sys
+try:
+	client = MongoClient(config.MONGODB_URI, connectTimeoutMS=30000)
+except:
+  print("Some error ocurred while connecting to database")
 
 
 class Create:

@@ -9,6 +9,7 @@
     <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/eos-icons/dist/extended/css/eos-icons-extended.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
@@ -45,8 +46,19 @@
 
 
 
+<div class="container verifycontainer">
+  <center>
+    <h1><span>Not Found!</span><i class="eos-icons not_verified_icon">do_not_disturb_alt</i></h1>
+    
+    <p class="verified-text-data">Your certificate doesn't seem Authentic. Couldn't verify the Certify code. </p>
+
+    <img src="{{ url_for('static',filename='assets/img/not-found.png') }}" alt="Not_found.png" class="notfound">
+
+</center>
+    </div>
 
 
+      
 
 
 </body>

@@ -1,3 +1,85 @@
+body {
+  font-family: 'Lato', sans-serif;
+  color: gray;
+}
 .navbarcustom {
   background-color: #4B87FF;
+}
+
+/* Verify page style */
+
+#btn-blue-invert {
+  color: #4B87FF;
+  border: 2px solid #4B87FF;
+  border-radius: 18px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  padding: 4px 15px;
+  margin: 4px 4px;
+  cursor: pointer;
+}
+
+#btn-blue-invert:hover {
+  background-color: #4B87FF;
+  color: white;
+  text-decoration: none;
+  transition-duration: 0.4s;
+}
+
+.form-control {
+  width: 300px;
+  height: 50px;
+  margin-bottom: 25px;
+  margin-top: 60px;
+  transition: width .2s ease-in-out;
+
+}
+.form-control:focus{
+  max-width: 450px;
+    width: 450px;
+}
+
+
+.verifycontainer {
+  margin-top: 50px;
+}
+
+.verifyheading {
+  text-decoration: underline;
+}
+
+.text-data {
+  margin: 25px 0px;
+}
+
+
+/* Verified certificate page style */
+
+.verified_certificate {
+  max-width: 700px;
+  margin: 50px 0px;
+}
+
+.verified_icon {
+  font-size: 38px;
+  margin-left: 5px;
+  color: #53b51f;
+}
+
+.verified-text-data {
+  margin: 15px 0px;
+}
+
+/* Not verified certificate page */
+
+.not_verified_icon {
+  font-size: 38px;
+  margin-left: 5px;
+  color: red;
+}
+
+.notfound {
+  max-width: 200px;
+  margin: 20px 0px;
 }
