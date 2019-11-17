@@ -83,3 +83,62 @@ body {
   max-width: 200px;
   margin: 20px 0px;
 }
+
+  
+/*
+EDIT certificate page style
+Split the screen in half */
+.split {
+  height: 100%;
+  position: fixed;
+  z-index: 1;
+  overflow-x: hidden;
+  padding: 30px 0px;
+}
+
+/* Control the left side */
+.left {
+  left: 0;
+  width: 65%;
+  
+  overflow: auto;
+}
+
+/* Control the right side */
+.right {
+  right: 0;
+  width: 35%;
+  
+  overflow: auto;
+}
+
+.edit_certificate{
+  margin: 20px 50px;
+}
+
+.value_add_icon {
+  vertical-align: middle;
+  font-size: 18x;
+  margin-left: 4px;
+  color: #4B87FF;
+}
+
+.value_check_icon {
+  vertical-align: middle;
+  font-size: 18x;
+  margin-left: 4px;
+  color: #53b51f;
+}
+
+.btn-add-value {
+  border: 1px solid gray;
+  margin: 10px 5px;
+}
+
+.values_container {
+  margin: 10px 0px;
+}
+
+.font_container {
+  margin: 30px 0px;
+}

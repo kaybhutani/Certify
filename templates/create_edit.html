@@ -8,8 +8,8 @@
     <title>Certify</title>
     <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/eos-icons/dist/extended/css/eos-icons-extended.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/eos-icons/dist/extended/css/eos-icons-extended.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
@@ -47,6 +47,33 @@
 
 
 
+      <div class="split left">
+        <div style="border-right: solid gray;">
+        <img class="edit_certificate" src="../static/temp/img/xyz.jpg" alt="" height="500px">
+      </div>
+      </div>
+        
+    
+    
+    
+    
+      <div class="split right">
+        <div class="container">
+        
+          <div class="values_container">
+          <h5><b>Text Fields</b></h5>
+          {%for i in values%}
+            <button onclick="addValue(this)" class="btn btn-add-value">{{i}}<i class="eos-icons value_add_icon">add_circle</i></button>
+          {%endfor%}
+        </div>
+
+        <div class="font_container">
+          <h5><b>Font</b></h5>
+        </div>
+      </div>
+      </div>
+        
+      
 
 
 

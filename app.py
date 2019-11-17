@@ -4,6 +4,14 @@ import os
 import generate
 import glob
 
+
+values = {
+                "Name": [550, 830],
+                "College": [650,970],
+                "Position": [1250, 1120],
+                "Competetion": [550, 1260]
+}
+
 #app name
 app=Flask(__name__)
 
@@ -14,12 +22,14 @@ def home():
   	if request.method == 'GET':
 		  return render_template("index.html")
 
+
 #app route for verify page
 @app.route('/verify', methods=['GET', 'POST'])
 def verify():
   	if request.method == 'GET':
 		  return render_template("verify.html")
-    
+
+
 #app route for verify check page
 @app.route('/verify/check/<certifycode>', methods=['GET', 'POST'])
 def verifycheck(certifycode):
@@ -38,6 +48,20 @@ def verifycheck(certifycode):
     return render_template("verified.html", image_url=image_url)
   else:
     return render_template("notverified.html")
+
+
+#app route for verify page
+@app.route('/create/edit', methods=['GET', 'POST'])
+def create_edit():
+  	if request.method == 'GET':
+		  return render_template("create_edit.html",values=values)
+
+
+
+
+
+
+
 
 if(__name__=='__main__'):
 	app.run(debug=True,use_reloader=True)

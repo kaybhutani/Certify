@@ -2,6 +2,7 @@ import pandas as pd
 from PIL import Image, ImageFont, ImageDraw
 import sys
 from pymongo import MongoClient
+import config
 
 ##testing data
 template = "certi.jpg"
