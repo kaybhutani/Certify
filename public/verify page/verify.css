@@ -1,9 +1,9 @@
-.body{
+.container{
   font-family: 'Lato', sans-serif;
+  text-align: center;
 }
 
 .heading{
-  text-align: center;
   padding-bottom: 10px;
   margin-top: 60px;
   }
@@ -25,9 +25,7 @@
 border: 2px solid #1B9CE5;
 color: #5AB9EA;
 padding: 7px;
-text-align: center;
 font-size: 27px;
-margin-left: 570px;
 transition: 0.4s;
 border-radius: 13px;
 line-height: 4;
@@ -38,10 +36,10 @@ line-height: 4;
   text-decoration: none;
   opacity: 2;
 }
-#inputPassword2 {
+.form-group {
     padding: 10px 20px;
     font-size: 17px;
-    margin-left:420px;
+    margin-left: 35%;
     margin-top: 20px;
-    width:32%;
+    width:335px;
 }
