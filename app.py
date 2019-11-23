@@ -50,11 +50,24 @@ def verifycheck(certifycode):
     return render_template("notverified.html")
 
 
-#app route for verify page
+#app route for create edit page
 @app.route('/create/edit', methods=['GET', 'POST'])
 def create_edit():
   	if request.method == 'GET':
 		  return render_template("create_edit.html",values=values)
+
+
+#app route for create api
+@app.route('/create/api', methods=['POST'])
+def create_api():
+  if request.method == 'POST':
+    json = request.get_json()
+    values = json['values']
+    font = json['font']
+    certify = json['certify']
+    print(json)
+    return "Success!"
+
 
 
 

@@ -11,7 +11,7 @@ body {
 #btn-blue-invert {
   color: #4B87FF;
   border: 2px solid #4B87FF;
-  border-radius: 18px;
+  border-radius: 8px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
@@ -27,7 +27,7 @@ body {
   transition-duration: 0.4s;
 }
 
-.form-control {
+.verify-form-input {
   width: 300px;
   height: 50px;
   margin-bottom: 25px;
@@ -35,9 +35,10 @@ body {
   transition: width .2s ease-in-out;
 
 }
-.form-control:focus{
+.verify-form-input:focus{
   max-width: 450px;
-    width: 450px;
+  width: 450px;
+  outline-width: 0;
 }
 
 
@@ -108,7 +109,7 @@ Split the screen in half */
 .right {
   right: 0;
   width: 35%;
-  
+  padding-bottom: 100px;
   overflow: auto;
 }
 
@@ -141,4 +142,36 @@ Split the screen in half */
 
 .font_container {
   margin: 30px 0px;
+}
+
+.edit-font-name-input {
+  max-width: 300px;
+  display: inline-block;
+}
+
+.edit-font-size-input {
+  max-width: 100px;
+  display: inline-block;
+}
+
+
+.btn:focus {
+  outline: none;
+}
+
+#fontColor {
+  max-width: 100px;
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 20px;
+}
+
+#certifyVerification {
+  display: inline-block;
+  height: 20px;
+  width: 20px;
+  background-color: #eee;
+  vertical-align: middle;
+  margin: 0px 20px;
+  float: right;
 }
