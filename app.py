@@ -1,4 +1,4 @@
-#importing files
+#importing modules
 from flask import Flask,render_template,request,redirect,url_for,send_from_directory,jsonify,abort,send_file
 import os
 from generate import Create
@@ -7,6 +7,7 @@ from datetime import datetime
 import pymongo
 import config
 import time
+import shutil
 import pandas as pd
 
 #specifing temp data
@@ -153,8 +154,11 @@ def create_api():
     template = path + "/template.jpg"
 
     create = Create(template=template, spreadsheet=spreadsheet, values=valuetemp, font=fonttemp, certify=certifytemp,ts=ts)
-    print("CHECK")
+    print("Creating files....")
     create.generate()
+    print("Created files successfully!")
+    #delete teplate data
+    shutil.rmtree(path)
     return str(ts)
 
 #app route for thankyou page

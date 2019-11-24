@@ -1,1 +1,1 @@
-MONGODB_URI = "mongodb://certify:certify0001@ds033079.mlab.com:33079/certify"
+MONGODB_URI = "mongodb://certify:certify0001@ds033079.mlab.com:33079/certify?retryWrites=false"
