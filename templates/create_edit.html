@@ -49,7 +49,7 @@
 
       <div class="split left">
         <div style="border-right: solid gray;">
-        <img class="edit_certificate" src="../static/temp/img/xyz.jpg" alt="" height="500px">
+        <img class="edit_certificate" src={{template}} alt="" height="500px">
       </div>
       </div>
         
@@ -69,8 +69,73 @@
 
         <div class="font_container">
           <h5><b>Font</b></h5>
+
+          <div class="form-group">
+            <label for="fontName"></label>
+            <select class="edit-font-name-input form-control" id="fontName">
+              <option>4</option>
+              <option>8</option>
+              <option>10</option>
+              <option>12</option>
+              <option>14</option>
+              <option>16</option>
+              <option>18</option>
+              <option>22</option>
+              <option>24</option>
+              <option>28</option>
+              <option>32</option>
+              <option>36</option>
+              <option>42</option>
+              <option>48</option>
+              <option>56</option>
+              <option>72</option>
+            </select>
+
+            <label for="fontSize"></label>
+            <select class="edit-font-size-input form-control" id="fontSize">
+              <option>4</option>
+              <option>8</option>
+              <option>10</option>
+              <option>12</option>
+              <option>14</option>
+              <option>16</option>
+              <option>18</option>
+              <option>22</option>
+              <option>24</option>
+              <option>28</option>
+              <option>32</option>
+              <option>36</option>
+              <option>42</option>
+              <option>48</option>
+              <option>56</option>
+              <option>72</option>
+            </select>
+          </div>
+
+
+        <div class="edit-font-color" >
+          <label for="edit-font-color-input">Select color: </label>
+                <input type="color" id="fontColor" class="form-control" name="head"
+                       value="#000000">
         </div>
+
+
+
+
+        </div>
+
+        <div class="certify_verification">
+            <h5 style="display: inline-block;"><b>Certify Verification</b></h5>
+            <input type="checkbox" name="certifyVerification" id="certifyVerification">
+          </div>
+
+          <div style="margin-top: 25px;">
+          <a onclick="generate()" style="font-size: 20px;" class="edit-generate-btn" id="btn-blue-invert">Generate<i class="eos-icons" style="vertical-align: middle;">arrow_forward</i></a>
+          </div>
       </div>
+
+
+      <!-- Right container ends -->
       </div>
         
       

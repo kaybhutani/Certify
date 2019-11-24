@@ -48,18 +48,16 @@
 
 <div class="container verifycontainer">
   <center>
-    <h1><span>Authentic Certificate!</span><i class="eos-icons verified_icon">check_circle</i></h1>
+    <h2><span>Thank you for using Certify!</span></h2>
     
-    <p class="verified-text-data">Your certificate seems Authentic. Here are the details. </p>
-    <ul class="list-group list-group-flush verifiedUserData">
-      {%for i in userData%}
-      <li class="list-group-item">{{i}} : {{userData[i]}}</li>
-    {%endfor%}
+    <p>You can download your files here.</p>
 
-    </ul>
+    <img src="{{ url_for('static',filename='assets/img/download.png') }}" alt="Download.png" class="notfound">
 
-    <img src="{{image_url}}" alt="Certificate.jpg" class="verified_certificate" >
-
+    <div style="margin-top: 25px;">
+      <p>Click here to download your files</p>
+      <a onclick="downloadFiles()" style="font-size: 20px;" class="edit-generate-btn" id="btn-blue-invert">Download<i class="eos-icons" style="vertical-align: middle;">arrow_downward</i></a>
+    </div>
 </center>
     </div>
 
