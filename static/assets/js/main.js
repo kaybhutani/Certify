@@ -6,6 +6,12 @@ function verify() {
     window.location = window.location + '/check/' + value
 
 }
+
+function downloadFiles() {
+  const downloadTimeStamp = window.location.href.split('?')[1]
+  window.location.href = `/download?${downloadTimeStamp}`
+}
+
 function addValue(obj){
   icon=obj.getElementsByTagName('i')[0]
   if(icon.className.includes('value_add_icon')){
@@ -54,7 +60,6 @@ function generate() {
     certifyCoordinates = getCoordinates("certifyVerification")
     certifyValue["coordinates"] = [certifyCoordinates["x"],certifyCoordinates["y"]]
   }
-  console.log(certifyValue)
 
   var json = {
     "values": values,
@@ -62,18 +67,27 @@ function generate() {
     "certify": certifyValue
   }
 
- //defining api endpoints
-  const postReqUrl = '/create/api'
+  loc = window.location.href
+  ts = loc.split('=')[1]
 
- //making post request to api endpoints
-  var xhttp = new XMLHttpRequest();
-  xhttp.open("POST", postReqUrl, true);
-  xhttp.setRequestHeader("Content-type", "application/json");
-  xhttp.setRequestHeader("X-Atlassian-Token", "nocheck");
-  xhttp.setRequestHeader('Authorization', 'Basic'+btoa('username:password')); 
-  xhttp.send(JSON.stringify(json));
-
+apiRequest(json, ts)
 }
+
+  function apiRequest(json, ts) {
+
+    $.ajax(
+    { url: '/create/api?=' + ts.toString(),
+      data: JSON.stringify({json: json,
+      ts: ts}),
+      contentType: 'application/json',
+      type: 'POST',
+      success: function(data, status){
+      window.location.href = `/create/thankyou?ts=${data}`
+      }
+      });
+
+  }
+
 
 function getCoordinates(valueName) {
   
@@ -81,3 +95,5 @@ function getCoordinates(valueName) {
   return {"x": 0,
           "y": 0}
 }
+
+

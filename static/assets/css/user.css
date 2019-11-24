@@ -59,7 +59,7 @@ body {
 
 .verified_certificate {
   max-width: 700px;
-  margin: 50px 0px;
+  margin: 50px 10px;
 }
 
 .verified_icon {
@@ -72,6 +72,12 @@ body {
   margin: 15px 0px;
 }
 
+.verifiedUserData {
+  margin-top: 50px;
+
+  text-align: left;
+  float: left;
+}
 /* Not verified certificate page */
 
 .not_verified_icon {

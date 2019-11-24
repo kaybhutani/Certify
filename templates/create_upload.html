@@ -9,7 +9,6 @@
     <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/eos-icons/dist/extended/css/eos-icons-extended.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
@@ -48,18 +47,31 @@
 
 <div class="container verifycontainer">
   <center>
-    <h1><span>Authentic Certificate!</span><i class="eos-icons verified_icon">check_circle</i></h1>
+    <h1 class="verifyheading"><span>Upload Files</span></h1>
+
+  <form action="/create" method="post" enctype="multipart/form-data">
+    <div class="" style="padding: 50px 0px;">
+    <div style="left:0; width: 40%; display: inline-block; padding-right: 25px; border-right: solid gray;">
+      <h3>Spreadsheet</h3>
+      <p>Upload Spreadsheet* with data of users you want to create certificate for.
+        Supported formats: .csv
+      </p>
+    <input type="file" name="spreadsheet" />
+    </div>
     
-    <p class="verified-text-data">Your certificate seems Authentic. Here are the details. </p>
-    <ul class="list-group list-group-flush verifiedUserData">
-      {%for i in userData%}
-      <li class="list-group-item">{{i}} : {{userData[i]}}</li>
-    {%endfor%}
+    
+    <div style="display: inline-block; right:0; width: 40%; ">
+      <h3>Template</h3>
+      <p>Upload Template image to be used for all certificates.
+        Supported formats: .jpg
+      </p>
+      <input type="file" name="template"/>
+    </div>
 
-    </ul>
-
-    <img src="{{image_url}}" alt="Certificate.jpg" class="verified_certificate" >
-
+    </div>
+    <input type="submit" value="Proceed">
+    </form>
+</div>
 </center>
     </div>
 
