@@ -57,8 +57,10 @@ function generate() {
   var certifyVerification = $('#certifyVerification')[0].checked
   var certifyValue = {"verify": certifyVerification}
   if(certifyVerification) {
-    certifyCoordinates = getCoordinates("certifyVerification")
+    // sample data coordinates
+    certifyCoordinates = {"x": 30 , "y": 1730}
     certifyValue["coordinates"] = [certifyCoordinates["x"],certifyCoordinates["y"]]
+    
   }
 
   var json = {

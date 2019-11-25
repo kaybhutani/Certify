@@ -153,7 +153,7 @@ def create_api():
     #url for template image
     template = path + "/template.jpg"
 
-    create = Create(template=template, spreadsheet=spreadsheet, values=valuetemp, font=fonttemp, certify=certifytemp,ts=ts)
+    create = Create(template=template, spreadsheet=spreadsheet, values=valuetemp, font=fonttemp, certify=certify,ts=ts)
     print("Creating files....")
     create.generate()
     print("Created files successfully!")

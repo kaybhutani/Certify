@@ -87,7 +87,7 @@ class Create:
     
     #add unique id to data frame if certify verification is True
     def addUnique(self,data,count):
-        if(self.certify):
+        if(self.certify["verify"]):
             uIds=[]
             #creating dataframe copy
             data = data.copy()
