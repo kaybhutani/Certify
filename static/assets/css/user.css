@@ -6,6 +6,99 @@ body {
   background-color: #4B87FF;
 }
 
+
+
+/* Landing page */
+
+
+.backgroundImg {
+  background:linear-gradient(145deg, #4B87FF,#4B87FF 60%, white 60%, white);
+}
+.main-content {
+  padding-top: 150px ;
+  padding-left: 120px;
+  position: relative;
+  left: 2px;
+  width: 55%;
+}
+.head-1{ color: white;
+width:75%;
+text-decoration: underline;
+text-align: left;}
+.subhead-1{ color: white;
+width:80%;
+text-align: left;
+  margin-top: 35px}
+.list2 {text-align: left;
+  margin-top: 25px;
+width: 70%;}
+.head-2 {color: #7A7A7A;
+  text-decoration: underline;
+  text-align: left;
+}
+.main-content2{
+  padding-top: 50px ;
+  padding-right: 30px;
+  color: #7A7A7A;
+  text-align: left;
+  position: relative;
+  left: 900px;
+  width: 35%;
+}
+
+
+
+.btn-createnow {
+  border-radius: 400px;
+  width: 170px;
+  text-align: center;
+  position: relative;
+  bottom: 260px;
+left: 120px;
+height: 40px;
+text-decoration-color: none;
+text-shadow: none;
+text-decoration: none;
+border-width: 2px;
+font-size: 20px;
+font-family: lato;
+border-style: solid;
+border-color: white;
+  background: #4B87FF;
+  color: white;
+}
+
+.btn-createnow:hover {background-color: white;
+  border:none;
+  color: #4B87FF;
+}
+
+
+.btn-verifynow { border-color: white;
+  background: #4B87FF;
+  color: white;
+  font-size: 20px;
+  font-family: lato;
+
+  border-width: 2px;
+  border-style: solid;
+  border-radius: 40px;
+  width: 170px;
+  text-decoration: none;
+  text-shadow:0;
+  text-align: center;
+  position: relative;
+  bottom: 210px;
+ right: 53px;
+ height: 40px;
+
+}
+
+.btn-verifynow:hover {background-color: white;
+  border:none;
+  color: #4B87FF;
+}
+
 /* Verify page style */
 
 #btn-blue-invert {
@@ -101,6 +194,31 @@ Split the screen in half */
   z-index: 1;
   overflow-x: hidden;
   padding: 30px 0px;
+}
+
+.create_edit_loading {
+  background-color: rgba(0,0,0,0.7);
+  height: 100%;
+  display: none;
+  left: 0px;
+  margin: 0px;
+  padding: 0px;
+  position: fixed;
+  text-align: center;
+  top: 0px;
+  width: 100%;
+  z-index: 1000;
+
+}
+.create_edit_loading i {
+  border-color: gray;
+  border-top-color: white;
+  font-size: 100px;
+  margin-top: 200px;
+}
+.create_edit_loading p {
+  color: white;
+  margin-top: 20px;
 }
 
 /* Control the left side */

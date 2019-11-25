@@ -53,23 +53,23 @@
     <div class="" style="padding: 50px 0px;">
     <div style="left:0; width: 40%; display: inline-block; padding-right: 25px; border-right: solid gray;">
       <h3>Spreadsheet</h3>
-      <p>Upload Spreadsheet* with data of users you want to create certificate for.
+      <p style="margin-top: 30px;">Upload Spreadsheet* with data of users you want to create certificate for.
         Supported formats: .csv
       </p>
-    <input type="file" name="spreadsheet"  accept=".csv"/>
+    <input style="margin-top: 20px;" type="file" name="spreadsheet" required accept=".csv"/>
     </div>
     
     
     <div style="display: inline-block; right:0; width: 40%; ">
       <h3>Template</h3>
-      <p>Upload Template image to be used for all certificates.
+      <p style="margin-top: 30px;">Upload Template image to be used for all certificates.
         Supported formats: .jpg
       </p>
-      <input type="file" name="template" accept=".jpg"/>
+      <input style="margin-top: 20px;" type="file" name="template" required accept=".jpg"/>
     </div>
 
     </div>
-    <input type="submit" value="Proceed">
+    <input id="btn-blue-invert" class="btn" type="submit" value="Proceed">
     </form>
 </div>
 </center>

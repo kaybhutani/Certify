@@ -28,6 +28,7 @@ function addValue(obj){
 
 
 function generate() {
+  document.getElementsByClassName('create_edit_loading')[0].style.display = "block"
   var values = {}
   var valuesarr = $('.value_check_icon')
   for(var i =0; i<valuesarr.length;i++)
