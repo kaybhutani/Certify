@@ -71,7 +71,7 @@ border-color: white;
 .btn-createnow:hover {background-color: white;
   border:none;
   color: #4B87FF;
-}
+  transition-duration: 0.4s;}
 
 
 .btn-verifynow { border-color: white;
@@ -97,6 +97,7 @@ border-color: white;
 .btn-verifynow:hover {background-color: white;
   border:none;
   color: #4B87FF;
+  transition-duration: 0.4s;
 }
 
 /* Verify page style */
