@@ -9,6 +9,7 @@ import config
 import time
 import shutil
 import pandas as pd
+import updateFont
 
 #specifing temp data
 valuetemp = {
@@ -143,24 +144,14 @@ def create_api():
     values = json['values']
     font = json['font']
     certify = json['certify']
-    #get color as it will be in hex
-    colorTemp = font["color"]
 
-    #get color for RGB, # R G B
-    colorRed = colorTemp[1:3]
-    colorGreen = colorTemp[3:5]
-    colorBlue = colorTemp[5:7]
+    #update font name and color with new values, refer updateFont.py
+    font = updateFont.updateFont(font)
 
-    #convert all colors from hex(base 16) to decimal int
-    colorRed = int(colorRed, 16)
-    colorGreen = int(colorGreen, 16)
-    colorBlue = int(colorBlue, 16)
-    
-    #making tuple of color
-    colorTuple = (colorRed, colorGreen, colorBlue)
-
-    #testing purpose
-    fonttemp["color"] = colorTuple
+    #testing
+    print(font)
+    fonttemp["name"]=font["name"]
+    fonttemp["color"] = font["color"]
 
     #url of folder with data
     path = path = './static/temp/data/data_' + str(ts)
