@@ -2,7 +2,7 @@ import pandas as pd
 from PIL import Image, ImageFont, ImageDraw
 import sys
 from hashids import Hashids
-from datetime import datetime
+from datetime import datetime, date
 import time
 import os
 import pymongo
@@ -29,7 +29,7 @@ class Create:
         count = max(list(data.count()))
         
         #update data with certify code if user checked it
-        data = self.addUnique(data,count)
+        datanew = self.addUnique(data,count)
         
         #create directory for files
         path = './static/temp/download/download_' + str(self.ts)
@@ -37,7 +37,7 @@ class Create:
         os.mkdir(path + '/images')
 
         #generating certificate
-        self.imageProcessing(data,count)
+        self.imageProcessing(datanew,count)
 
         #remove folder after creating zip
         shutil.rmtree(path)
@@ -112,6 +112,7 @@ class Create:
                 for j in self.values:
                     #adding value and its data
                     dictData[i][j] = data[j][n]
+                dictData[i]["Generated on"] = date.today().strftime("%d/%m/%Y")
                 listData.append(dictData)
             self.addToDatabase(listData)
             #adding certify to value
