@@ -12,20 +12,51 @@ function downloadFiles() {
   window.location.href = `/download?${downloadTimeStamp}`
 }
 
+function changeSize(obj){
+  elements=$(".draggable")
+  for(var i =0; i<elements.length;i++)
+{
+text=elements[i].getElementsByClassName("valuePara")[0]
+text.style.fontSize=`${obj.value}px`
+}
+}
+
+
 function addValue(obj){
   icon=obj.getElementsByTagName('i')[0]
   if(icon.className.includes('value_add_icon')){
     icon.innerText = 'check_circle'
     icon.classList.remove('value_add_icon')
     icon.classList.add('value_check_icon')
+
+    valueName = obj.innerText.replace('check_circle','')
+    templateElement = $(`#template_${valueName}`)[0]
+    templateElement.style.display="inline-table"
+
   }
   else {
     icon.innerText = 'add_circle'
     icon.classList.add('value_add_icon')
     icon.classList.remove('value_check_icon')
+
+    valueName = obj.innerText.replace('add_circle','')
+    templateElement = $(`#template_${valueName}`)[0]
+    templateElement.style.display="none"
   }
 }
 
+function addCertifyToTemplate(){
+  checkbox=$('#certifyVerification')[0]
+  if(checkbox.checked==true){
+    element = $('#template_certify')[0]
+    element.style.display="inline-table"
+    fontsize = Math.floor($('#fontSize')[0].value)/2
+    element.style.fontSize = `${fontsize}px`
+
+}
+  else
+  $('#template_certify')[0].style.display="none"
+}
 
 function generate() {
   document.getElementsByClassName('create_edit_loading')[0].style.display = "block"
@@ -95,8 +126,18 @@ apiRequest(json, ts)
 function getCoordinates(valueName) {
   
   //returning dict with x and y coordinates
-  return {"x": 0,
-          "y": 0}
+  valueNewName = `template_valueName`
+  innerDiv = $(`#${valueNewName}`)[0].getElementsByClassName("draggable")[0]
+  innerDivX=innerDiv.offsetLeft
+  innerDivY=innerDiv.offsetTop
+  certiImg = $('.edit_certificate_div')[0]
+  certiImgX = certiImg.offsetLeft
+  certiImgY = certiImg.offsetTop
+  console.log({"x": innerDivX-certiImgX,
+  "y": innerDivY-certiImgY})
+  return {"x": innerDivX-certiImgX,
+          "y": innerDivY-certiImgY}
+  
 }
 
 

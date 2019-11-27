@@ -14,8 +14,22 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
   <script src="{{ url_for('static',filename='assets/js/main.js')}}"></script>
-  
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
   <link rel="stylesheet" href="{{ url_for('static',filename='assets/css/user.css') }}">
+
+
+
+  <script>
+    $( function() {
+      $( ".draggable" ).draggable({ containment: "#certificate_template" }); 
+    
+    });
+    
+    </script>
+
+
+
 </head>
 <body>
 
@@ -52,8 +66,22 @@
 
       <div class="split left">
         <div style="border-right: solid gray;">
-        <img class="edit_certificate" src={{template}} alt="" height="500px">
-      </div>
+          <div class="edit_certificate_div">
+            {%for i in values%}
+            <div style="display: none;" id="template_{{i}}">
+              <div style="box-sizing: border-box; border: solid 1px black; display: inline-table;" class="draggable" class="ui-widget-content">
+                <p class="valuePara" style="font-size: 18px; margin: 0px 0px; padding: 1px 1px;">{{i}}</p>
+              </div>
+            </div>
+            {%endfor%}
+            <div style="display: none;" id="template_certify">
+              <div style="box-sizing: border-box; border: solid 1px black; display: inline-table;" class="draggable" class="ui-widget-content">
+                <p class="valuePara" style="font-size: 18px; margin: 0px 0px; padding: 1px 1px;">Certify Code</p>
+              </div>
+            </div>
+            <img style="display: block;" id="certificate_template" src={{template}} alt="" height="500px">
+          </div>
+        </div>
       </div>
         
     
@@ -99,14 +127,14 @@
             </select>
 
             <label for="fontSize"></label>
-            <select class="edit-font-size-input form-control" id="fontSize">
+            <select onchange="changeSize(this)" class="edit-font-size-input form-control" id="fontSize" >
               <option>4</option>
               <option>8</option>
               <option>10</option>
               <option>12</option>
               <option>14</option>
               <option>16</option>
-              <option>18</option>
+              <option selected="selected">18</option>
               <option>22</option>
               <option>24</option>
               <option>28</option>
@@ -133,7 +161,7 @@
 
         <div class="certify_verification">
             <h5 style="display: inline-block;"><b>Certify Verification</b></h5>
-            <input type="checkbox" name="certifyVerification" id="certifyVerification">
+            <input onclick="addCertifyToTemplate()" type="checkbox" name="certifyVerification" id="certifyVerification">
           </div>
 
           <div style="margin-top: 25px;">
