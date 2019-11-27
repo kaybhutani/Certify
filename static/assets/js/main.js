@@ -126,8 +126,9 @@ apiRequest(json, ts)
 function getCoordinates(valueName) {
   
   //returning dict with x and y coordinates
-  valueNewName = `template_valueName`
+  valueNewName = `template_${valueName`
   innerDiv = $(`#${valueNewName}`)[0].getElementsByClassName("draggable")[0]
+  console.log("Checkpoint2")
   innerDivX=innerDiv.offsetLeft
   innerDivY=innerDiv.offsetTop
   certiImg = $('.edit_certificate_div')[0]
