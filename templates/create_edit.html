@@ -70,13 +70,13 @@
             {%for i in values%}
             <div style="display: none;" id="template_{{i}}">
               <div style="box-sizing: border-box; border: solid 1px black; display: inline-table;" class="draggable" class="ui-widget-content">
-                <p class="valuePara" style="font-size: 18px; margin: 0px 0px; padding: 1px 1px;">{{i}}</p>
+                <p class="valuePara" style="font-size: 18px; margin: 0px 0px; padding: 0px 0px;">{{i}}</p>
               </div>
             </div>
             {%endfor%}
             <div style="display: none;" id="template_certify">
               <div style="box-sizing: border-box; border: solid 1px black; display: inline-table;" class="draggable" class="ui-widget-content">
-                <p class="valuePara" style="font-size: 18px; margin: 0px 0px; padding: 1px 1px;">Certify Code</p>
+                <p class="valuePara" style="font-size: 18px; margin: 0px 0px; padding: 0px 0px;">Certify Code</p>
               </div>
             </div>
             <img style="display: block;" id="certificate_template" src={{template}} alt="" height="500px">

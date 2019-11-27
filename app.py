@@ -12,19 +12,19 @@ import pandas as pd
 import updateFont
 
 #specifing temp data
-valuetemp = {
-                "Name": [550, 830],
-                "College": [650,970],
-                "Position": [1250, 1120],
-                "Event": [550, 1260]
-}
-fonttemp={
-    "name": 'arial.ttf',
-    "size": 65,
-    "color": (0,0,0)
-}
-certifytemp = {"verify": True,
-           "coordinates": [30,1730]}
+# valuetemp = {
+#                 "Name": [550, 830],
+#                 "College": [650,970],
+#                 "Position": [1250, 1120],
+#                 "Event": [550, 1260]
+# }
+# fonttemp={
+#     "name": 'arial.ttf',
+#     "size": 65,
+#     "color": (0,0,0)
+# }
+# certifytemp = {"verify": True,
+#            "coordinates": [30,1730]}
 
 #app name
 app=Flask(__name__)
@@ -81,7 +81,7 @@ def verifycheck(certifycode):
 @app.route('/create', methods=['GET', 'POST'])
 def create_upload():
   if request.method == 'GET':
-    return render_template("create_upload.html",values=valuetemp)
+    return render_template("create_upload.html")
   elif request.method == 'POST':
     spreadsheet = request.files['spreadsheet']
     template = request.files['template']
@@ -149,9 +149,9 @@ def create_api():
     font = updateFont.updateFont(font)
 
     #testing
-    print(font)
-    fonttemp["name"]=font["name"]
-    fonttemp["color"] = font["color"]
+    # print(font)
+    # fonttemp["name"]=font["name"]
+    # fonttemp["color"] = font["color"]
 
     #url of folder with data
     path = path = './static/temp/data/data_' + str(ts)
@@ -162,7 +162,7 @@ def create_api():
     #url for template image
     template = path + "/template.jpg"
 
-    create = Create(template=template, spreadsheet=spreadsheet, values=valuetemp, font=fonttemp, certify=certify,ts=ts)
+    create = Create(template=template, spreadsheet=spreadsheet, values=values, font=font, certify=certify,ts=ts)
     print("Creating files....")
     create.generate()
     print("Created files successfully!")

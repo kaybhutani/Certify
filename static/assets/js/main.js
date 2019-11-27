@@ -90,7 +90,7 @@ function generate() {
   var certifyValue = {"verify": certifyVerification}
   if(certifyVerification) {
     // sample data coordinates
-    certifyCoordinates = {"x": 30 , "y": 1730}
+    certifyCoordinates = getCoordinates("certify")
     certifyValue["coordinates"] = [certifyCoordinates["x"],certifyCoordinates["y"]]
     
   }
@@ -100,7 +100,6 @@ function generate() {
     "font": font,
     "certify": certifyValue
   }
-
   loc = window.location.href
   ts = loc.split('=')[1]
 
@@ -126,7 +125,7 @@ apiRequest(json, ts)
 function getCoordinates(valueName) {
   
   //returning dict with x and y coordinates
-  valueNewName = `template_${valueName`
+  valueNewName = `template_${valueName}`
   innerDiv = $(`#${valueNewName}`)[0].getElementsByClassName("draggable")[0]
   console.log("Checkpoint2")
   innerDivX=innerDiv.offsetLeft
@@ -134,11 +133,17 @@ function getCoordinates(valueName) {
   certiImg = $('.edit_certificate_div')[0]
   certiImgX = certiImg.offsetLeft
   certiImgY = certiImg.offsetTop
-  console.log({"x": innerDivX-certiImgX,
-  "y": innerDivY-certiImgY})
-  return {"x": innerDivX-certiImgX,
-          "y": innerDivY-certiImgY}
+
+  fontsize = $('.draggable')[0].getElementsByClassName("valuePara")[0].style.fontSize
+  fontsize = parseInt(fontsize.replace("px", ""))
+  console.log(fontsize)
+  xpos = innerDivX- certiImgX
+  //subtracting font length from y axis
+  ypos = innerDivY-certiImgY
+  //Testing
+  /*console.log({"x": innerDivX-certiImgX,
+  "y": innerDivY-certiImgY})*/
+  return {"x": xpos,
+          "y": ypos - fontsize}
   
 }
-
-

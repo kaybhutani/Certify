@@ -50,6 +50,8 @@ def updateFont(font):
   #update font name with url
   font["name"] = fontName
 
+  #updating font size from str to int
+  font["size"] = int(font["size"])
   #get color as it will be in hex
   colorTemp = font["color"]
 

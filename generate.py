@@ -18,13 +18,32 @@ class Create:
         self.certify = certify
         self.ts = ts
 
+    def resizeFontValues(self):
+      img = Image.open(self.template).convert('RGB')
+      width, height = img.size
+      heightNew = 500
+      ratio = height/heightNew
+
+      for coor in self.values:
+        self.values[coor] = [int((self.values[coor][0])*ratio),  int((self.values[coor][1])*ratio) ]
+    
+      self.font["size"]=int((self.font["size"])*ratio)
+
+      if self.certify["verify"] == True:
+        self.certify["coordinates"]=[  int((self.certify["coordinates"][0])*ratio),int((self.certify["coordinates"][1])*ratio)  ]
+
+
     def generate(self):
         try:
             data=pd.read_csv(self.spreadsheet)
         except:
             data=pd.read_excel(self.spreadsheet)
             data.fillna("")
-
+        
+        #updating data
+        print(self.values, self.font, self.certify)
+        self.resizeFontValues()
+        print(self.values, self.font, self.certify)
         #getting max no. of rows
         count = max(list(data.count()))
         
