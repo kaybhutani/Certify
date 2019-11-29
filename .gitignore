@@ -1,4 +1,5 @@
 node_modules
 venv
-static/temp
-static/verified
+static/temp/data/*
+static/temp/download/*
+static/verified/images/*
