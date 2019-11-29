@@ -2,6 +2,7 @@ astroid==2.3.3
 blob==0.16
 Click==7.0
 Flask==1.1.1
+gunicorn==20.0.4
 hashids==1.2.0
 isort==4.3.21
 itsdangerous==1.1.0
