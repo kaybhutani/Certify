@@ -31,7 +31,7 @@ Note: You can skip installing virtual environment if you want. Jump to step 3 if
 `source venv/bin/activate`
 
 3. Installing dependencies 
-`pip install -r requirements.txt`
+`pip3 install -r requirements.txt`
 
 ### Running the project
 
