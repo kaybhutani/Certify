@@ -78,6 +78,10 @@ class Create:
                 #get font for that element
                 fontName = ImageFont.truetype(self.font['name'], fontSize)
                 
+                # center allign text 
+                w, h = draw.textsize(data[j][i])
+                self.values[j] = [self.values[j][0]-(w/2),self.values[j][1]-(h/2)]
+
                 #draw on image
                 draw.text(self.values[j], data[j][i],font=fontName, fill=self.font['color'])
             

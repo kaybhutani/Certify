@@ -16,7 +16,6 @@ The URI for Mlab instance is not provided here. For now, keep the Certify verifi
 
 To create folders for temp data run following commands
 
-`mkdir static/temp static/verified`
 `mkdir static/temp/data static/temp/download static/verified/images`
 
 
