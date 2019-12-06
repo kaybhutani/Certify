@@ -1,7 +1,7 @@
 node_modules
 venv
-static/temp/data/*
-static/temp/download/*
-static/verified/images/*
+static/temp/data/*/
+static/temp/download/*.zip
+static/verified/images/*.jpg
 .vscode
 __pycache__
