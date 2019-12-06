@@ -11,13 +11,7 @@ Certify helps creating multiple certificates (Upto 1000 at a time) that are usin
 
 `cd Certify`
 
-As of now, for image database, Certify uses file system and for user data it uses MongoDB (Mlab)
-The URI for Mlab instance is not provided here. For now, keep the Certify verification on edit page as checked off to avoid errors with MongoDB
-
-To create folders for temp data run following commands
-
-`mkdir static/temp static/verified`
-`mkdir static/temp/data static/temp/download static/verified/images`
+As of now, for verified certificate image database (`static/verified/images`), Certify uses file system and for user data it uses MongoDB (Mlab)
 
 
 ### Setting up Virtual environment
