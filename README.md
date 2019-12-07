@@ -22,13 +22,13 @@ Note: You can skip installing virtual environment if you want. Jump to step 3 if
 `virtualenv ven`
 
 2. Activate virtual environment
-`source venv/bin/activate`
+`source ven/bin/activate`
 
 3. Installing dependencies 
-`pip install -r requirements.txt`
+`pip3 install -r requirements.txt`
 
 ### Running the project
 
-`python app.py`
+`python3 app.py`
 
 This will run a http server at http://127.0.0.1:5000/
