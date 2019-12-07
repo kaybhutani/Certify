@@ -80,10 +80,8 @@ class Create:
                 
                 # center allign text 
                 w, h = draw.textsize(data[j][i])
-                self.values[j] = [self.values[j][0]-(w/2),self.values[j][1]-(h/2)]
-
                 #draw on image
-                draw.text(self.values[j], data[j][i],font=fontName, fill=self.font['color'])
+                draw.text([self.values[j][0]-(w/2),self.values[j][1]], data[j][i],font=fontName, fill=self.font['color'])
             
             #save image separately
             #also save in database --> verified folder if verification is checked 
