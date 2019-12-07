@@ -3,3 +3,4 @@ venv
 static/temp/data/*
 static/temp/download/*
 static/verified/images/*
+.vscode
