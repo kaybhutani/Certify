@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta name="propeller" content="25aab3a4b8776d8f8471983902728227">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Certify</title>
+    <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/eos-icons/dist/extended/css/eos-icons-extended.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <script src="{{ url_for('static',filename='assets/js/main.js')}}"></script>
+  
+  <link rel="stylesheet" href="{{ url_for('static',filename='assets/css/user.css') }}">
+  <link rel="stylesheet" href="footerstyle.css">
+</head>
+<body>
+
+
+
+    <nav class="navbar navbar-expand-md bg-gray navbar-dark navbarcustom">
+        <a class="navbar-brand" href="/">
+            <img src="{{ url_for('static',filename='assets/img/certifylogo.png') }}" width="100" class="d-inline-block align-top" alt="Certify">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        
+        <div class="collapse navbar-collapse" id="collapsibleNavbar">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="/">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/verify">Verify</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/create">Create</a>
+            </li>    
+          </ul>
+        </div>  
+      </nav>
+
+<div class="backgroundImg">
+
+      <div class="main-content">
+
+
+        <h3 class="head-1">Making Digital Certification easier!</h3>
+        <p class="subhead-1">Certify aims to help Organizations create Multiple User Specific Digital certificates
+        through spreadsheet data meanwhile providing a platform to verify its authenticity</p>
+        </div>
+        <div class="main-content2">
+          <h3 class="head-2">How does Certify work?</h3>
+          <p>
+            <ol class="list2" type="1">
+              <li>  Upload Spreadsheet with data of users you want to create certificate for.
+        </li>
+        <li>Upload Certificate template image.</li>
+        <li>Edit the text fields and position them where you want it.</li>
+        <li>Done! Wait for our servers to create all of the certificates.</li>
+            </ol>  </p>
+        </div>
+        <button onclick="window.location.href = &quot;/create&quot;" class="btn-createnow ">Create now &rarr;</button>
+        <button onclick="window.location.href = &quot;/verify&quot;" class="btn-verifynow">Verify now &rarr;</button>
+
+      </div>
+
+
+        <!-- Site footer -->
+        <div class="container" id="foot">
+          <div class="row">
+            <div class="col-sm" id="Heading">GET IN TOUCH WITH US.</div>
+            
+          </div>
+          <div class="row">
+            <div class="col-sm"> 
+                <p id="Feedback"> Feedback</p>
+                <p id="GSI">  Got some ideas or something new to say to us? </p>
+                <a href="#" class="myButton" id="SUF">Send Us Feedback</a><br>
+  
+  
+  
+            </div>
+            <div class="col-sm">
+              <p id="rephead">Repository</p>
+              <p id="repstat">Do you want to fork EOS icons,contribute,or report an issue?</p>
+      
+              <a href="#" class="myButton" id="REPO">Repository</a>
+              <a href="#" class="myButton">Report Issue</a><br>
+      
+  
+            </div>
+          </div>
+        </div>
+
+     
+
+
+</body>
+
+</html>
