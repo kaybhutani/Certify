@@ -300,3 +300,96 @@ Split the screen in half */
   margin: 0px 20px;
   float: right;
 }
+
+/* Footer */
+
+
+#foot{
+  color: white;
+  background: linear-gradient(to left, #232020 6%, #5f6769 84%);
+
+
+}
+
+#Feedback{
+
+  margin-left: 30%;
+  font-size: x-large;
+
+
+
+}
+
+
+#Heading{
+
+  margin-top: 20px;
+  text-align: center;
+  margin-bottom: 3%;
+
+
+
+
+}
+
+#GSI{
+
+   margin-left: 10%;
+
+}
+
+#rephead{
+  font-size: x-large;
+
+  margin-left: 40%;
+}
+
+#repstat{
+
+  margin-left: 10%;
+
+}
+
+/* Buttons */
+
+
+#SUF{
+
+  left: 50%;
+
+margin-top: 10%;
+margin-left: 20%;
+margin-right: 20%;
+
+}
+
+
+#REPO{
+  left: 50%;
+
+  margin: 10% 20%;
+
+
+
+}
+
+
+.myButton {
+background-color:transparent;
+border-radius:30px;
+border:2px solid #f5f5f5;
+display:inline-block;
+cursor:pointer;
+color:#ffffff;
+font-size:17px;
+padding:10px 15px;
+text-decoration:none;
+}
+.myButton:hover {
+background-color:transparent;
+text-decoration:none;
+color: darkslategray;
+background-color: white;
+transition-duration: 0.4s;
+
+}
