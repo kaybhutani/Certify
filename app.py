@@ -128,6 +128,7 @@ def create_api():
   if request.method == 'POST':
     #getting api request data
     json = request.get_json()
+    print(json)
     try:
       print("Got ts")
       print(json["ts"])
