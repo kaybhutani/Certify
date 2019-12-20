@@ -4,9 +4,68 @@ body {
 }
 .navbarcustom {
   background-color: #4B87FF;
+  max-height: 50px;
+}
+
+.mainSection {
+  z-index: 1000;
 }
 
 
+.snow1
+{
+  z-index: 1000;
+	background:url(../img/snow.png);
+	background-repeat:repeat;
+	width:100%;
+	height: inherit;
+	position:absolute;
+	top:0;
+	left:0;
+	animation:animateOne 20s infinite linear;
+
+}
+
+.snow2
+{
+  z-index: 1000;
+	background:url(../img/snow.png);
+	background-repeat:repeat;
+	width:100%;
+	height: inherit;
+	position:absolute;
+	top:-150;
+	left:0;
+	animation:animatesecond 35s infinite linear;
+	opacity: 50%;
+
+}
+
+
+@keyframes animateOne
+{
+	0%
+	{
+		background-position: 0px 0px
+	}
+
+	100%
+	{
+		background-position: 100px 650px
+	}
+}
+@keyframes animatesecond
+{
+	0%
+	{
+		background-position: 0px 0px
+	}
+
+	100%
+	{
+		background-position: 100px 650px
+	}
+}
 
 /* Landing page */
 
@@ -185,7 +244,7 @@ border-color: white;
   margin: 20px 0px;
 }
 
-  
+
 /*
 EDIT certificate page style
 Split the screen in half */
@@ -226,7 +285,7 @@ Split the screen in half */
 .left {
   left: 0;
   width: 65%;
-  
+
   overflow: auto;
 }
 
