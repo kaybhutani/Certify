@@ -6,8 +6,45 @@ from datetime import datetime, date
 import time
 import os
 import pymongo
+import gridfs
 import shutil
 import config
+
+
+def retrieve_image_from_database(img_id):
+    # get an image based on it's 'certify code'
+    client = pymongo.MongoClient(config.MONGODB_URI, connectTimeoutMS=30000)
+    database = client.certify
+    fs = gridfs.GridFS(database)
+    if fs.exists(img_id):
+        retrieved_img = fs.get(img_id).read()
+        verified_img_file = open('./static/verified/images/' + img_id + '.jpg', 'wb')
+        verified_img_file.write(retrieved_img)
+        img_location = 'verified/images/' + img_id + '.jpg'
+        return True
+    else:
+        return False
+
+
+def add_to_image_database(image, img_id):
+    # Saves a given image to the database with the 'certify code' as its ID
+
+    client = pymongo.MongoClient(config.MONGODB_URI, connectTimeoutMS=30000)
+    database = client.certify
+    fs = gridfs.GridFS(database)
+    fs.put(image, _id=img_id)
+
+
+def addToDatabase(listData):
+    client = pymongo.MongoClient(config.MONGODB_URI, connectTimeoutMS=30000)
+    #database certify
+    database = client.certify
+    #collection userData in Certify
+    collection = database["userData"]
+    #inserting full list as many documents
+    collection.insert_many(listData)
+
+
 class Create:
     #defining variables
     def __init__(self, template, spreadsheet, values, font, certify, ts):
@@ -84,11 +121,18 @@ class Create:
             #save image separately
             #also save in database --> verified folder if verification is checked 
             if(self.certify['verify']):
-                img.save('./static/verified/images/' + data["Certify"][i] +'.jpg')
+                # img.save('./static/verified/images/' + data["Certify"][i] +'.jpg')
+                # compresses image (x is set to 500 and aspect ration is preserved through the 'img_size_on_y' variable)
+                img_size_on_y = int(500 * img.size[1] / img.size[0])
+                downsized_img = img.resize((500, img_size_on_y), Image.LANCZOS)
+                downsized_img.save('./static/verified/images/' + data["Certify"][i] + '_downsized' + '.jpg')
+                database_image = open('./static/verified/images/' + data["Certify"][i] + '_downsized' +'.jpg', 'rb')
+                add_to_image_database(database_image, data["Certify"][i])
+                os.remove('./static/verified/images/' + data["Certify"][i] + '_downsized' + '.jpg')
             
             #save for downloading
             folder = './static/temp/download/download_' + str(self.ts)
-            img.save( folder + '/images/' + str(i)  +'.jpg')
+            img.save(folder + '/images/' + str(i) + '.jpg')
         
         #save dataframe as spreadsheet
         data.to_csv(folder + '/data.csv', header=False, index=False) 
@@ -133,7 +177,7 @@ class Create:
                     dictData[i][j] = data[j][n]
                 dictData[i]["Generated on"] = date.today().strftime("%d/%m/%Y")
                 listData.append(dictData)
-            self.addToDatabase(listData)
+            addToDatabase(listData)
             #adding certify to value
             self.values["Certify"]=self.certify["coordinates"]
             
@@ -141,13 +185,3 @@ class Create:
             
         #return new data frame
         return data
-    def addToDatabase(self,listData):
-        client = pymongo.MongoClient(config.MONGODB_URI, connectTimeoutMS=30000)
-        #database certify
-        database = client.certify
-        #collection userData in Certify
-        collection = database["userData"]
-        #inserting full list as many documents
-        collection.insert_many(listData)
-        
-        
