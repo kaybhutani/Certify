@@ -4,6 +4,7 @@ import sys
 from hashids import Hashids
 from datetime import datetime, date
 import time
+import threading
 import os
 import pymongo
 import gridfs
@@ -28,7 +29,6 @@ def retrieve_image_from_database(img_id):
 
 def add_to_image_database(image, img_id):
     # Saves a given image to the database with the 'certify code' as its ID
-
     client = pymongo.MongoClient(config.MONGODB_URI, connectTimeoutMS=30000)
     database = client.certify
     fs = gridfs.GridFS(database)
@@ -127,8 +127,10 @@ class Create:
                 downsized_img = img.resize((500, img_size_on_y), Image.LANCZOS)
                 downsized_img.save('./static/verified/images/' + data["Certify"][i] + '_downsized' + '.jpg')
                 database_image = open('./static/verified/images/' + data["Certify"][i] + '_downsized' +'.jpg', 'rb')
-                add_to_image_database(database_image, data["Certify"][i])
-                os.remove('./static/verified/images/' + data["Certify"][i] + '_downsized' + '.jpg')
+                background_thread = threading.Thread(target=add_to_image_database,
+                                                     args=(database_image, data["Certify"][i]))
+                background_thread.start()
+
             
             #save for downloading
             folder = './static/temp/download/download_' + str(self.ts)
