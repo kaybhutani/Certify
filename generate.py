@@ -27,7 +27,6 @@ def retrieve_image_from_database(img_id):
         verified_img_file = open('./static/verified/images/' + img_id + '.jpg', 'wb')
         verified_img_file.write(retrieved_img)
         img_location = 'verified/images/' + img_id + '.jpg'
-        delete_tmp_img_after_60_sec = threading.Thread(target=delete_temp_image_file, args=(img_id,))
         return True
     else:
         return False
@@ -39,8 +38,6 @@ def add_to_image_database(image, img_id):
     database = client.certify
     fs = gridfs.GridFS(database)
     fs.put(image, _id=img_id)
-    time.sleep(3)
-    os.remove('./static/verified/images/' + img_id + '_downsized' + '.jpg')
 
 
 def addToDatabase(listData):
