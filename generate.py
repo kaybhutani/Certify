@@ -12,11 +12,6 @@ import shutil
 import config
 
 
-def delete_temp_image_file(img_id):
-    time.sleep(60)
-    os.remove('./static/verified/images/' + img_id + '.jpg')
-
-
 def retrieve_image_from_database(img_id):
     # get an image based on it's 'certify code'
     client = pymongo.MongoClient(config.MONGODB_URI, connectTimeoutMS=30000)
