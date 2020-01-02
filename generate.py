@@ -140,10 +140,11 @@ class Create:
                                                      args=(database_image, data["Certify"][i]))
                 background_thread.start()
 
-
+            
             #save for downloading
             folder = './static/temp/download/download_' + str(self.ts)
             img.save(folder + '/images/' + str(i) + '.jpg')
+        
 
         #save dataframe as spreadsheet
         data.to_csv(folder + '/data.csv', header=False, index=False)

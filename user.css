@@ -1,6 +1,7 @@
 body {
   font-family: 'Lato', sans-serif;
   color: gray;
+  
 }
 .navbarcustom {
   background-color: #4B87FF;
@@ -298,11 +299,10 @@ Split the screen in half */
   background-color: #eee;
   vertical-align: middle;
   margin: 0px 20px;
-  float: right;
+  
 }
 
 /* Footer */
-
 
 #foot{
   color: white;
@@ -323,10 +323,9 @@ Split the screen in half */
 
 #Heading{
 
-  margin-top: 20px;
   text-align: center;
   margin-bottom: 3%;
-
+  
 
 
 
@@ -381,15 +380,16 @@ border:2px solid #f5f5f5;
 display:inline-block;
 cursor:pointer;
 color:#ffffff;
+font-family:Arial;
 font-size:17px;
-padding:10px 15px;
+padding:15px 23px;
 text-decoration:none;
+text-shadow:0px 1px 0px #2f6627;
 }
 .myButton:hover {
 background-color:transparent;
-text-decoration:none;
-color: darkslategray;
-background-color: white;
-transition-duration: 0.4s;
-
+}
+.myButton:active {
+position:relative;
+top:1px;
 }
