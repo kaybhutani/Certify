@@ -63,7 +63,7 @@ class Create:
 
       for coor in self.values:
         self.values[coor] = [int((self.values[coor][0])*ratio),  int((self.values[coor][1])*ratio) ]
-    
+
       self.font["size"]=int((self.font["size"])*ratio)
 
       if self.certify["verify"] == True:
@@ -76,17 +76,17 @@ class Create:
         except:
             data=pd.read_excel(self.spreadsheet)
             data.fillna("")
-        
+
         #updating data
         print(self.values, self.font, self.certify)
         self.resizeFontValues()
         print(self.values, self.font, self.certify)
         #getting max no. of rows
         count = max(list(data.count()))
-        
+
         #update data with certify code if user checked it
         datanew = self.addUnique(data,count)
-        
+
         #create directory for files
         path = './static/temp/download/download_' + str(self.ts)
         os.mkdir(path)
@@ -99,14 +99,14 @@ class Create:
         shutil.rmtree(path)
 
     def imageProcessing(self,data,count):
-        
+
         for i in range(0,count):
             #opening image and canvas
             img = Image.open(self.template).convert('RGB')
-            
+
             #opening canvas
             draw = ImageDraw.Draw(img)
-            
+
             #k for iterating through values{} index
             for j,k in zip(self.values,range(0,len(self.values))):
                 fontSize = self.font['size']
@@ -114,12 +114,21 @@ class Create:
                     fontSize=int(fontSize/1.5)
                 #get font for that element
                 fontName = ImageFont.truetype(self.font['name'], fontSize)
-                
-                #draw on image
-                draw.text(self.values[j], data[j][i],font=fontName, fill=self.font['color'])
-            
+
+                #center align
+                h,w=draw.textsize(data[j][i])
+                if (j=='College' or j=='Position'):
+                    draw.text([self.values[j][0]+31.5*3-(h/2)*3,self.values[j][1]], data[j][i],font=fontName, fill=self.font['color'])
+                elif(j=='Event'):
+                    if (h>48):
+                        draw.text([self.values[j][0]+23*6-(h/2)*6,self.values[j][1]], data[j][i],font=fontName, fill=self.font['color'])
+                    else:
+                        draw.text([self.values[j][0]+23*3-(h/2)*3,self.values[j][1]], data[j][i],font=fontName, fill=self.font['color'])
+                else:
+                    draw.text([self.values[j][0]+24*6-(h/2)*6,self.values[j][1]], data[j][i],font=fontName, fill=self.font['color'])
+
             #save image separately
-            #also save in database --> verified folder if verification is checked 
+            #also save in database --> verified folder if verification is checked
             if(self.certify['verify']):
                 # img.save('./static/verified/images/' + data["Certify"][i] +'.jpg')
                 # compresses image (x is set to 500 and aspect ration is preserved through the 'img_size_on_y' variable)
@@ -136,37 +145,38 @@ class Create:
             folder = './static/temp/download/download_' + str(self.ts)
             img.save(folder + '/images/' + str(i) + '.jpg')
         
+
         #save dataframe as spreadsheet
-        data.to_csv(folder + '/data.csv', header=False, index=False) 
+        data.to_csv(folder + '/data.csv', header=False, index=False)
         shutil.make_archive(folder , 'zip', folder)
-        
+
     #generate unique id based on timestamp and salt
     def unique(self):
         #generating hashid, specifying salt and alphabets available
         hashids = Hashids(salt = "certify to create certificates", alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvyxyz1234567890")
 
         #generating unique id based on time stamp before and after decimal
-        uniqueId = hashids.encode(int(datetime.today().timestamp()))[-3:] + hashids.encode(int(str(datetime.today().timestamp()).split('.')[1])) 
-        
+        uniqueId = hashids.encode(int(datetime.today().timestamp()))[-3:] + hashids.encode(int(str(datetime.today().timestamp()).split('.')[1]))
+
         return uniqueId
-    
+
     #add unique id to data frame if certify verification is True
     def addUnique(self,data,count):
         if(self.certify["verify"]==True):
             uIds=[]
             #creating dataframe copy
             data = data.copy()
-            
+
             #generate unique id for all values
             for i in range(0,count):
                 uIds.append(self.unique())
 
             #append column to dataframe
             data['Certify'] = uIds
-            
-            #creating empty list for database data            
+
+            #creating empty list for database data
             listData = []
-            
+
             #iterating through unique id array and 0 to count in same loop
             for i,n in zip(uIds,range(0,count)):
                 #adding unique id to dictionary
@@ -182,8 +192,8 @@ class Create:
             addToDatabase(listData)
             #adding certify to value
             self.values["Certify"]=self.certify["coordinates"]
-            
-            
-            
+
+
+
         #return new data frame
         return data
