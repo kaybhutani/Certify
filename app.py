@@ -2,6 +2,7 @@
 from flask import Flask,render_template,request,redirect,url_for,send_from_directory,jsonify,abort,send_file
 import os
 from generate import Create
+import generate
 import glob
 from datetime import datetime
 import pymongo
@@ -57,17 +58,20 @@ def verify():
 #app route for verify check page
 @app.route('/verify/check/<certifycode>', methods=['GET', 'POST'])
 def verifycheck(certifycode):
+  image_exists_in_database = generate.retrieve_image_from_database(certifycode)
+  # The following line has become obsolete, verification is handeled through the database with the 'retrieve_image_from_database' funktion
   arr = glob.glob("static/verified/images/" + certifycode + ".*")
+
   #check if arr is not empty (means a file with same name exists)
-  if arr:
-    
+  if arr: # Possibly replace the following with 'image_exists_in_database'
+
     #take first image
     #split image path and get the end file name
     image = arr[0].split('/')[-1]
 
     #getting image path in flask template
     image_url = url_for('static',filename='verified/images/'+ image)
-    
+
     #look for certify id and return data
     verifiedUserData = searchCertifyCode(certifycode)
 
@@ -86,7 +90,7 @@ def create_upload():
     spreadsheet = request.files['spreadsheet']
     template = request.files['template']
     ts = int(datetime.today().timestamp())
-    
+
     #create directory for files
     path = './static/temp/data/data_' + str(ts)
     os.mkdir(path)
@@ -106,16 +110,16 @@ def create_edit():
       print("Couldnt get ts")
     #url of folder with data
     path = path = './static/temp/data/data_' + str(ts)
-    
+
     #url for data spreadsheet
     spreadsheet = path + "/data.csv"
-    
+
     #reading dataframe
     data = pd.read_csv(spreadsheet)
-    
+
     #making list of all columns
     valuesTemp=list(data.columns)
-    
+
     #url for certificate to display
     templateImg = '../static/temp/data/data_' + str(ts) + "/template.jpg"
 
@@ -156,7 +160,7 @@ def create_api():
 
     #url of folder with data
     path = path = './static/temp/data/data_' + str(ts)
-    
+
     #url for data spreadsheet
     spreadsheet = path + "/data.csv"
 
