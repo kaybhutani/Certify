@@ -64,16 +64,16 @@ function generate() {
   var valuesarr = $('.value_check_icon')
   for(var i =0; i<valuesarr.length;i++)
   {
-    //the text contains icon name as text too, replacing it with ''    
+    //the text contains icon name as text too, replacing it with ''
     valueName = (valuesarr[i].parentElement.innerText).replace(valuesarr[i].innerText, '')
-   
+
     //getting coordinates
     coordinates = getCoordinates(valueName)
 
     //adding value to dictionary
     values[valueName] =  [coordinates["x"],coordinates["y"]]
   }
-  
+
   //getting font data: name,size and color
 
   var fontName = $('#fontName')[0].value
@@ -92,7 +92,7 @@ function generate() {
     // sample data coordinates
     certifyCoordinates = getCoordinates("certify")
     certifyValue["coordinates"] = [certifyCoordinates["x"],certifyCoordinates["y"]]
-    
+
   }
 
   var json = {
@@ -123,13 +123,15 @@ apiRequest(json, ts)
 
 
 function getCoordinates(valueName) {
-  
+
   //returning dict with x and y coordinates
   valueNewName = `template_${valueName}`
   innerDiv = $(`#${valueNewName}`)[0].getElementsByClassName("draggable")[0]
   console.log("Checkpoint2")
   innerDivX=innerDiv.offsetLeft
   innerDivY=innerDiv.offsetTop
+  width=innerDiv.offsetWidth
+  height= innerDiv.offsetHeight
   certiImg = $('.edit_certificate_div')[0]
   certiImgX = certiImg.offsetLeft
   certiImgY = certiImg.offsetTop
@@ -137,13 +139,15 @@ function getCoordinates(valueName) {
   fontsize = $('.draggable')[0].getElementsByClassName("valuePara")[0].style.fontSize
   fontsize = parseInt(fontsize.replace("px", ""))
   console.log(fontsize)
-  xpos = innerDivX- certiImgX
+  wd=width/2
+  ht=height/2
+  xpos = innerDivX- certiImgX +wd
   //subtracting font length from y axis
-  ypos = innerDivY-certiImgY
+  ypos = innerDivY-certiImgY 
   //Testing
   /*console.log({"x": innerDivX-certiImgX,
   "y": innerDivY-certiImgY})*/
   return {"x": xpos,
           "y": ypos - fontsize}
-  
+
 }
