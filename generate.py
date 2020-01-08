@@ -118,7 +118,7 @@ class Create:
 
                 #center align
                 w,h=fontName.getsize(data[j][i])
-                draw.text([self.values[j][0]-w/2,self.values[j][1]-h/2], data[j][i],font=fontName, fill=self.font['color'])
+                draw.text([self.values[j][0]-w/2,self.values[j][1]], data[j][i],font=fontName, fill=self.font['color'])
 
             #save image separately
             #also save in database --> verified folder if verification is checked
