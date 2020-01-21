@@ -115,17 +115,10 @@ class Create:
                 #get font for that element
                 fontName = ImageFont.truetype(self.font['name'], fontSize)
 
+
                 #center align
-                h,w=draw.textsize(data[j][i])
-                if (j=='College' or j=='Position'):
-                    draw.text([self.values[j][0]+31.5*3-(h/2)*3,self.values[j][1]], data[j][i],font=fontName, fill=self.font['color'])
-                elif(j=='Event'):
-                    if (h>48):
-                        draw.text([self.values[j][0]+23*6-(h/2)*6,self.values[j][1]], data[j][i],font=fontName, fill=self.font['color'])
-                    else:
-                        draw.text([self.values[j][0]+23*3-(h/2)*3,self.values[j][1]], data[j][i],font=fontName, fill=self.font['color'])
-                else:
-                    draw.text([self.values[j][0]+24*6-(h/2)*6,self.values[j][1]], data[j][i],font=fontName, fill=self.font['color'])
+                w,h=fontName.getsize(data[j][i])
+                draw.text([self.values[j][0]-w/2,self.values[j][1]], data[j][i],font=fontName, fill=self.font['color'])
 
             #save image separately
             #also save in database --> verified folder if verification is checked
@@ -140,11 +133,11 @@ class Create:
                                                      args=(database_image, data["Certify"][i]))
                 background_thread.start()
 
-            
+
             #save for downloading
             folder = './static/temp/download/download_' + str(self.ts)
             img.save(folder + '/images/' + str(i) + '.jpg')
-        
+
 
         #save dataframe as spreadsheet
         data.to_csv(folder + '/data.csv', header=False, index=False)
